@@ -1,14 +1,115 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Noto Serif', serif;
+  font-size: 16px;
+  height: 100%;
+  line-height: 1.5;
+}
+
+.container {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 54rem;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+form p {
+  margin: 1rem 0;
+}
+.error {
+  color: #ff0000;
+}
+.hidden {
+  visibility: hidden;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+header nav li {
+  color: #999999;
+  cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 2rem;
+  padding: 1rem;
+  transition: color .3s;
+}
+header nav li:hover {
+  color: #000000;
+}
+.current, .current:hover {
+  border-bottom: 3px solid #000000;
+  color: #000000;
+}
+.alert {
+  color: #ff9999;
+}
+.alert:hover {
+  color: #ff0000;
+}
+.current-alert, .current-alert:hover {
+  border-bottom: 3px solid #ff0000;
+  color: #ff0000;
+}
+
+main {
+  padding: 1rem;
+}
+
+h2 {
+  border-top: 1px solid #404040;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.17rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+}
+.sub-alert {
+  color: #ff0000;
+}
+
+.item-set {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: min-content min-content;
+  margin: 0 1rem 2rem 2rem;
+}
+.item-set p {
+  margin: 0 1rem 0 2rem;
+  white-space: nowrap;
+}
+.highlight {
+  font-style: italic;
+  font-weight: bold;
+}
+.item-set span {
+  padding-left: .25rem;
+}
+.failure {
+  background-color: #f4cccc;
+}
+.partial {
+  background-color: #fff2cc;
+}
+.success {
+  background-color: #d9ead3;
+}
+
+.response {
+  font-size: 4rem;
+  line-height: 1;
+  margin: 0 1rem 2rem 4rem;
 }

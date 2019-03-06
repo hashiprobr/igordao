@@ -1,0 +1,149 @@
+{
+    "diagsOrder": [
+        "Quizzes Individuais",
+        "Quizzes Coletivos",
+        "Quizzes Técnicos"
+    ],
+    "diags": {
+        "Quizzes Individuais": {
+            "type": "grade",
+            "weight": 2.0,
+            "codes": [
+                "Quiz Individual da Aula 1",
+                "Quiz Individual da Aula 2",
+                "Quiz Individual da Aula 3",
+                "Quiz Individual da Aula 4",
+                "Quiz Individual da Aula 5",
+                "Quiz Individual da Aula 6",
+                "Quiz Individual da Aula 7"
+            ]
+        },
+        "Quizzes Coletivos": {
+            "type": "feedback",
+            "weight": 1.0,
+            "codes": [
+                "Quiz Coletivo da Aula 1",
+                "Quiz Coletivo da Aula 2",
+                "Quiz Coletivo da Aula 4",
+                "Quiz Coletivo da Aula 6",
+                "Quiz Coletivo da Aula 7"
+            ]
+        },
+        "Quizzes Técnicos": {
+            "type": "grade",
+            "weight": 1.0,
+            "codes": [
+                "Quiz Técnico 1",
+                "Quiz Técnico 2"
+            ]
+        }
+    },
+    "goalsOrder": [
+        "DA1",
+        "DA2",
+        "DA3",
+        "DA4",
+        "DA5",
+        "OO1",
+        "OO2",
+        "OO3",
+        "OO4",
+        "ED1",
+        "ES1"
+    ],
+    "goals": {
+        "DA1": {
+            "title": "Seguir especificações em desenvolvimento ágil",
+            "evals": {
+                "APS": 1.75,
+                "Prova Prática Questão 1": 1.75,
+                "Prova Prática Questão 2": 1.75,
+                "Projeto 1": 1.75
+            }
+        },
+        "DA2": {
+            "title": "Seguir protocolos em desenvolvimento ágil",
+            "evals": {
+                "Projeto 1": 3.5,
+                "Projeto 2": 3.5
+            }
+        },
+        "DA3": {
+            "title": "Estruturar histórias de usuário a partir de requisitos",
+            "evals": {
+                "Projeto 1": 10.0
+            }
+        },
+        "DA4": {
+            "title": "Estimar viabilidade de tarefas a partir de prazos",
+            "evals": {
+                "APS": 3.75,
+                "Prova Técnica": 3.75,
+                "Projeto 1": 3.75,
+                "Projeto 2": 3.75
+            }
+        },
+        "DA5": {
+            "title": "Priorizar requisitos a partir de comunicações com partes interessadas",
+            "evals": {
+                "Projeto 2": 15.0
+            }
+        },
+        "OO1": {
+            "title": "Entender conceitos básicos de programação orientada a objetos",
+            "evals": {
+                "Prova Teórica": 3.0,
+                "Mini-Provas Teóricas": 3.0
+            }
+        },
+        "OO2": {
+            "title": "Seguir práticas básicas em programação orientada a objetos",
+            "evals": {
+                "APS": 1.75,
+                "Prova Prática Questão 1": 1.75,
+                "Prova Prática Questão 2": 1.75,
+                "Projeto 1": 1.75
+            }
+        },
+        "OO3": {
+            "title": "Estruturar programas orientados a objetos simples",
+            "evals": {
+                "Prova Teórica": 5.0,
+                "Mini-Provas Teóricas": 5.0
+            }
+        },
+        "OO4": {
+            "title": "Refatorar programas orientados a objetos simples",
+            "evals": {
+                "APS": 2.5,
+                "Prova Prática Questão 1": 2.5,
+                "Prova Prática Questão 2": 2.5,
+                "Projeto 1": 2.5
+            }
+        },
+        "ED1": {
+            "title": "Aplicar buscas clássicas em árvores binárias",
+            "evals": {
+                "Prova Teórica": 3.5,
+                "Mini-Provas Teóricas": 3.5
+            }
+        },
+        "ES1": {
+            "title": "Entender conceitos clássicos de engenharia de software",
+            "evals": {
+                "Prova Teórica": 3.0,
+                "Mini-Provas Teóricas": 3.0
+            }
+        }
+    },
+    "evalsOrder": [
+        "Prova Teórica",
+        "APS",
+        "Prova Técnica",
+        "Mini-Provas Teóricas",
+        "Prova Prática Questão 1",
+        "Prova Prática Questão 2",
+        "Projeto 1",
+        "Projeto 2"
+    ]
+}
