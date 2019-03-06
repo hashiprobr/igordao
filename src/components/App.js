@@ -5,6 +5,8 @@ import GoalPage from './GoalPage';
 import MeanPage from './MeanPage';
 
 import desagil from '../schemas/desagil';
+import desprog from '../schemas/desprog';
+import redesoc from '../schemas/redesoc';
 
 import sheet from '../sheet';
 
@@ -14,6 +16,8 @@ class App extends Component {
     this.schemaMissing = true;
     this.schema = {
       desagil: desagil,
+      desprog: desprog,
+      redesoc: redesoc,
     };
     this.stateMissing = true;
     this.state = {
@@ -274,7 +278,11 @@ class App extends Component {
       let url = new URL(window.location.href);
       let key = url.searchParams.get('schema');
       if (!(key in this.schema)) {
-        return <p>SCHEMA MISSING</p>;
+        return (
+          <form>
+            <p>pare de brincar com o endereço da página</p>
+          </form>
+        );
       }
       this.schemaMissing = false;
       this.schema = this.schema[key];
