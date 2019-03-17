@@ -143,14 +143,14 @@ export default {
       grades.push(this.convert(args[i]));
     }
 
-    var sorted = grades.sort().reverse();
+    grades = grades.sort(function(a, b) { return a - b; });
 
     var index = Math.floor((grades.length - 1) / 2);
 
     if (grades.length % 2 === 0) {
-      return (sorted[index] + sorted[index + 1]) / 2;
+      return (grades[index] + grades[index + 1]) / 2;
     }
-    return sorted[index];
+    return grades[index];
   },
 
   goalResult: function(median, delta) {
