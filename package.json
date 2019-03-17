@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,5 +22,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://ensino.hashi.pro.br/alpha"
+  "homepage": "https://ensino.hashi.pro.br/alpha",
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  }
 }
