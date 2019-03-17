@@ -4,10 +4,9 @@
     ],
     "diags": {
         "Quizzes": {
-            "type": "grade",
             "weight": 1.0,
+            "type": "grade",
             "codes": [
-                "Quiz 1",
                 "Quiz 2",
                 "Quiz 3",
                 "Quiz 4",

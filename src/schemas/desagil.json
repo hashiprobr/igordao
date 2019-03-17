@@ -6,8 +6,8 @@
     ],
     "diags": {
         "Quizzes Individuais": {
-            "type": "grade",
             "weight": 2.0,
+            "type": "grade",
             "codes": [
                 "Quiz Individual da Aula 1",
                 "Quiz Individual da Aula 2",
@@ -19,8 +19,8 @@
             ]
         },
         "Quizzes Coletivos": {
-            "type": "feedback",
             "weight": 1.0,
+            "type": "feedback",
             "codes": [
                 "Quiz Coletivo da Aula 1",
                 "Quiz Coletivo da Aula 2",
@@ -30,8 +30,8 @@
             ]
         },
         "Quizzes Técnicos": {
-            "type": "grade",
             "weight": 1.0,
+            "type": "grade",
             "codes": [
                 "Quiz Técnico 1",
                 "Quiz Técnico 2"

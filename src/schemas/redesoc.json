@@ -7,8 +7,8 @@
     ],
     "diags": {
         "Exercícios": {
-            "type": "feedback",
             "weight": 1.0,
+            "type": "feedback",
             "codes": [
                 "Exercício 1",
                 "Exercício 2",
@@ -18,8 +18,8 @@
             ]
         },
         "Quizzes": {
-            "type": "grade",
             "weight": 1.0,
+            "type": "grade",
             "codes": [
                 "Quiz 1",
                 "Quiz 2",
@@ -29,8 +29,8 @@
             ]
         },
         "Avaliação 1": {
-            "type": "grade",
             "weight": 2.0,
+            "type": "grade",
             "codes": [
                 "Avaliação do Objetivo 1",
                 "Avaliação do Objetivo 2",
@@ -40,8 +40,8 @@
             ]
         },
         "Avaliação 2": {
-            "type": "grade",
             "weight": 2.0,
+            "type": "grade",
             "codes": [
                 "Avaliação da Proposta"
             ]
