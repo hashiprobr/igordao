@@ -12,8 +12,7 @@
                 "Quiz 4",
                 "Quiz 5",
                 "Quiz 6",
-                "Quiz 7",
-                "Quiz 8"
+                "Quiz 7"
             ]
         }
     },
@@ -42,16 +41,16 @@
             "title": "Implementar estruturas de dados com gerenciamento manual de memória",
             "evals": {
                 "Prova 0": 3.0,
-                "Prova 3 Questão 6": 1.0,
-                "Prova 4 Questão 6": 1.0
+                "Prova 3 Questão 5": 1.0,
+                "Prova 4 Questão 3": 1.0
             }
         },
         "AP3": {
             "title": "Implementar estruturas de dados com programação orientada a objetos",
             "evals": {
                 "Prova 0": 3.0,
-                "Prova 3 Questão 6": 1.0,
-                "Prova 4 Questão 6": 1.0
+                "Prova 3 Questão 5": 1.0,
+                "Prova 4 Questão 3": 1.0
             }
         },
         "AN1": {
@@ -94,16 +93,16 @@
                 "Prova 2 Questão 5": 1.0,
                 "Prova 2 Questão 6": 1.0,
                 "Prova 3 Questão 3": 1.0,
-                "Prova 3 Questão 4": 1.0,
-                "Prova 4 Questão 3": 1.0
+                "Prova 3 Questão 6": 1.0,
+                "Prova 4 Questão 4": 1.0
             }
         },
         "EV2": {
             "title": "Avaliar estruturas de dados",
             "evals": {
-                "Prova 3 Questão 5": 1.0,
-                "Prova 4 Questão 4": 1.0,
-                "Prova 4 Questão 5": 1.0
+                "Prova 3 Questão 4": 1.0,
+                "Prova 4 Questão 5": 1.0,
+                "Prova 4 Questão 6": 1.0
             }
         },
         "CR1": {

@@ -116,9 +116,9 @@
             "title": "Refatorar programas orientados a objetos simples",
             "evals": {
                 "APS": 2.5,
-                "Prova Prática Questão 1": 2.5,
-                "Prova Prática Questão 2": 2.5,
-                "Projeto 1": 2.5
+                "Prova Prática Questão 3": 2.5,
+                "Prova Prática Questão 4": 2.5,
+                "Projeto 2": 2.5
             }
         },
         "ED1": {
@@ -143,6 +143,8 @@
         "Mini-Provas Teóricas",
         "Prova Prática Questão 1",
         "Prova Prática Questão 2",
+        "Prova Prática Questão 3",
+        "Prova Prática Questão 4",
         "Projeto 1",
         "Projeto 2"
     ]
