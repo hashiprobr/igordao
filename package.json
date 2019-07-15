@@ -24,6 +24,6 @@
   ],
   "homepage": "https://ensino.hashi.pro.br/alpha",
   "devDependencies": {
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }
