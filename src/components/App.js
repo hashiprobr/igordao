@@ -6,7 +6,6 @@ import MeanPage from './MeanPage';
 
 import desagil from '../schemas/desagil';
 import desprog from '../schemas/desprog';
-import redesoc from '../schemas/redesoc';
 
 import sheet from '../sheet';
 
@@ -17,7 +16,6 @@ class App extends Component {
     this.schema = {
       desagil: desagil,
       desprog: desprog,
-      redesoc: redesoc,
     };
     this.stateMissing = true;
     this.state = {
