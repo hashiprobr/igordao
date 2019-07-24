@@ -15,7 +15,7 @@ class GoalPage extends Component {
           }
           return <GoalItemSet key={index}
                               code={code}
-                              title={this.props.schema.goals[code].title + ' (' + code + ')'}
+                              title={code + ': ' + this.props.schema.goals[code].title}
                               type="grade"
                               codes={titles}
                               report={report}
