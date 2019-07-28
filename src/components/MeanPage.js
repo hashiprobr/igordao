@@ -11,7 +11,7 @@ class MeanPage extends Component {
     }
     return (
       <section>
-        <MeanItemSet title="Objetivos Alcançados"
+        <MeanItemSet title="Objetivos Atingidos"
                      response={reached + '/' + Object.keys(this.props.goalSits).length}/>
         <MeanItemSet title="Média Essencial"
                      response={this.props.essMean}

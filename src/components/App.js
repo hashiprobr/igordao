@@ -4,8 +4,9 @@ import EvalPage from './EvalPage';
 import GoalPage from './GoalPage';
 import MeanPage from './MeanPage';
 
-import desagil from '../schemas/desagil';
+import codes from '../schemas/codes';
 import desprog from '../schemas/desprog';
+import redesoc from '../schemas/redesoc';
 
 import sheet from '../sheet';
 
@@ -14,8 +15,9 @@ class App extends Component {
     super(props);
     this.schemaMissing = true;
     this.schema = {
-      desagil: desagil,
+      codes: codes,
       desprog: desprog,
+      redesoc: redesoc,
     };
     this.stateMissing = true;
     this.state = {

@@ -7,26 +7,27 @@
             "weight": 1.0,
             "type": "grade",
             "codes": [
+                "Quiz 1",
                 "Quiz 2",
                 "Quiz 3",
                 "Quiz 4",
                 "Quiz 5",
                 "Quiz 6",
-                "Quiz 7"
+                "Quiz 7",
+                "Quiz 8"
             ]
         }
     },
     "goalsOrder": [
         "AP1",
-        "AP2",
-        "AP3",
         "AN1",
         "AN2",
         "AN3",
         "AN4",
         "EV1",
         "EV2",
-        "CR1"
+        "CR1",
+        "CR2"
     ],
     "goals": {
         "AP1": {
@@ -37,24 +38,8 @@
                 "Prova 1 Questão 3": 1.0
             }
         },
-        "AP2": {
-            "title": "Implementar estruturas de dados com gerenciamento manual de memória",
-            "evals": {
-                "Prova 0": 3.0,
-                "Prova 3 Questão 5": 1.0,
-                "Prova 4 Questão 3": 1.0
-            }
-        },
-        "AP3": {
-            "title": "Implementar estruturas de dados com programação orientada a objetos",
-            "evals": {
-                "Prova 0": 3.0,
-                "Prova 3 Questão 5": 1.0,
-                "Prova 4 Questão 3": 1.0
-            }
-        },
         "AN1": {
-            "title": "Estruturar algoritmos procedurais recursivos a partir de especificações de problemas",
+            "title": "Estruturar algoritmos procedurais recursivos a partir de problemas",
             "evals": {
                 "Prova 1 Questão 4": 1.0,
                 "Prova 1 Questão 5": 1.0,
@@ -62,7 +47,7 @@
             }
         },
         "AN2": {
-            "title": "Estruturar algoritmos procedurais a partir de descrições de alto nível",
+            "title": "Estruturar algoritmos procedurais a partir de descrições",
             "evals": {
                 "APS 1": 3.0,
                 "APS 2": 3.0,
@@ -93,19 +78,27 @@
                 "Prova 2 Questão 5": 1.0,
                 "Prova 2 Questão 6": 1.0,
                 "Prova 3 Questão 3": 1.0,
-                "Prova 3 Questão 6": 1.0,
-                "Prova 4 Questão 4": 1.0
+                "Prova 3 Questão 5": 1.0,
+                "Prova 4 Questão 3": 1.0
             }
         },
         "EV2": {
             "title": "Avaliar estruturas de dados",
             "evals": {
-                "Prova 3 Questão 4": 1.0,
+                "Prova 3 Questão 6": 1.0,
                 "Prova 4 Questão 5": 1.0,
                 "Prova 4 Questão 6": 1.0
             }
         },
         "CR1": {
+            "title": "Modificar estruturas de dados clássicas",
+            "evals": {
+                "Prova 0": 3.0,
+                "Prova 3 Questão 4": 1.0,
+                "Prova 4 Questão 4": 1.0
+            }
+        },
+        "CR2": {
             "title": "Criar dinâmicas para aprendizado ativo",
             "evals": {
                 "Projeto": 9.0

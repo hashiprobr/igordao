@@ -1,0 +1,168 @@
+{
+    "diagsOrder": [
+        "Quizzes Individuais",
+        "Quizzes Coletivos"
+    ],
+    "diags": {
+        "Quizzes Individuais": {
+            "weight": 2.0,
+            "type": "grade",
+            "codes": [
+                "Quiz Individual 1",
+                "Quiz Individual 2",
+                "Quiz Individual 3",
+                "Quiz Individual 4",
+                "Quiz Individual 5",
+                "Quiz Individual 6",
+                "Quiz Individual 7",
+                "Quiz Individual 8",
+                "Quiz Individual 9",
+                "Quiz Individual 10",
+                "Quiz Individual 11",
+                "Quiz Individual 12",
+                "Quiz Individual 13"
+            ]
+        },
+        "Quizzes Coletivos": {
+            "weight": 1.0,
+            "type": "grade",
+            "codes": [
+                "Quiz Coletivo 1",
+                "Quiz Coletivo 2",
+                "Quiz Coletivo 3",
+                "Quiz Coletivo 4",
+                "Quiz Coletivo 5",
+                "Quiz Coletivo 6",
+                "Quiz Coletivo 7",
+                "Quiz Coletivo 8",
+                "Quiz Coletivo 9",
+                "Quiz Coletivo 10",
+                "Quiz Coletivo 11"
+            ]
+        }
+    },
+    "goalsOrder": [
+        "FE1",
+        "FE2",
+        "FE3",
+        "FE4",
+        "FE5",
+        "UX1",
+        "UX2",
+        "UX3",
+        "UX4",
+        "UX5",
+        "DT1",
+        "DT2",
+        "DT3",
+        "DT4",
+        "DT5",
+        "DT6"
+    ],
+    "goals": {
+        "FE1": {
+            "title": "Implementar arquiteturas de informação em HTML",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "FE2": {
+            "title": "Implementar composições de produtos digitais em CSS",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "FE3": {
+            "title": "Implementar designs responsivos em CSS",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "FE4": {
+            "title": "Implementar designs adaptativos em CSS",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "FE5": {
+            "title": "Entender conceitos básicos de JavaScript",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "UX1": {
+            "title": "Seguir processos de prototipação de arquiteturas de informação",
+            "evals": {
+                "Projeto 1": 1.0
+            }
+        },
+        "UX2": {
+            "title": "Seguir processos de prototipação de composições de produtos digitais",
+            "evals": {
+                "Projeto 1": 1.0,
+                "Projeto 2": 2.0
+            }
+        },
+        "UX3": {
+            "title": "Seguir processos de escolha de fontes de produtos digitais",
+            "evals": {
+                "Projeto 1": 1.0,
+                "Projeto 2": 2.0
+            }
+        },
+        "UX4": {
+            "title": "Seguir processos de escolha de cores de produtos digitais",
+            "evals": {
+                "Projeto 1": 1.0,
+                "Projeto 2": 2.0
+            }
+        },
+        "UX5": {
+            "title": "Seguir protocolos de teste de usabilidade de produtos digitais",
+            "evals": {
+                "Projeto 1": 1.0,
+                "Projeto 2": 2.0
+            }
+        },
+        "DT1": {
+            "title": "Estruturar roteiros de entrevistas com usuários",
+            "evals": {
+                "Projeto 2": 4.0
+            }
+        },
+        "DT2": {
+            "title": "Controlar fluxos em entrevistas com usuários",
+            "evals": {
+                "Projeto 2": 4.0
+            }
+        },
+        "DT3": {
+            "title": "Construir conexões em entrevistas com usuários",
+            "evals": {
+                "Projeto 2": 4.0
+            }
+        },
+        "DT4": {
+            "title": "Estruturar personas a partir de entrevistas com usuários",
+            "evals": {
+                "Projeto 2": 2.0
+            }
+        },
+        "DT5": {
+            "title": "Estruturar cenários a partir de conceitos de aplicativo",
+            "evals": {
+                "Projeto 2": 2.0
+            }
+        },
+        "DT6": {
+            "title": "Comunicar decisões de design para partes interessadas",
+            "evals": {
+                "Projeto 2": 2.0
+            }
+        }
+    },
+    "evalsOrder": [
+        "Projeto 1",
+        "Projeto 2"
+    ]
+}

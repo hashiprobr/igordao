@@ -1,0 +1,112 @@
+{
+    "diagsOrder": [
+        "Exercícios",
+        "Carrosséis"
+    ],
+    "diags": {
+        "Exercícios": {
+            "weight": 1.0,
+            "type": "feedback",
+            "codes": [
+                "Exercício 1",
+                "Exercício 2",
+                "Exercício 3",
+                "Exercício 4",
+                "Exercício 5"
+            ]
+        },
+        "Carrosséis": {
+            "weight": 1.0,
+            "type": "grade",
+            "codes": [
+                "Carrossel 1",
+                "Carrossel 2",
+                "Carrossel 3",
+                "Carrossel 4"
+            ]
+        }
+    },
+    "goalsOrder": [
+        "MP0",
+        "MP1",
+        "MP2",
+        "MP3",
+        "MP4",
+        "CE1",
+        "CE2",
+        "CE3"
+    ],
+    "goals": {
+        "MP0": {
+            "title": "Seguir processos iterativos de pesquisa",
+            "evals": {
+                "Projeto": 5.0
+            }
+        },
+        "MP1": {
+            "title": "Formular hipóteses que explicam fenômenos dentro de um contexto",
+            "evals": {
+                "Avaliação 1": 5.0,
+                "Projeto": 5.0
+            }
+        },
+        "MP2": {
+            "title": "Especificar métodos operacionalizáveis que verificam hipóteses",
+            "evals": {
+                "Avaliação 2": 5.0,
+                "Projeto": 5.0
+            }
+        },
+        "MP3": {
+            "title": "Sintetizar resultados obtidos por métodos",
+            "evals": {
+                "Avaliação 3": 5.0,
+                "Projeto": 5.0
+            }
+        },
+        "MP4": {
+            "title": "Reformular hipóteses a partir de resultados",
+            "evals": {
+                "Avaliação 4": 5.0,
+                "Projeto": 5.0
+            }
+        },
+        "CE1": {
+            "title": "Descrever uma pesquisa como artigo científico",
+            "evals": {
+                "Avaliação 3": 1.0,
+                "Avaliação 2": 1.0,
+                "Avaliação 4": 1.0,
+                "Avaliação 1": 1.0,
+                "Projeto": 1.0
+            }
+        },
+        "CE2": {
+            "title": "Seguir protocolos gerais de redação",
+            "evals": {
+                "Avaliação 3": 1.0,
+                "Avaliação 2": 1.0,
+                "Avaliação 4": 1.0,
+                "Avaliação 1": 1.0,
+                "Projeto": 1.0
+            }
+        },
+        "CE3": {
+            "title": "Seguir protocolos acadêmicos de redação",
+            "evals": {
+                "Avaliação 3": 1.0,
+                "Avaliação 2": 1.0,
+                "Avaliação 4": 1.0,
+                "Avaliação 1": 1.0,
+                "Projeto": 1.0
+            }
+        }
+    },
+    "evalsOrder": [
+        "Avaliação 3",
+        "Avaliação 2",
+        "Avaliação 4",
+        "Avaliação 1",
+        "Projeto"
+    ]
+}
