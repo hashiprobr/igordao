@@ -6,13 +6,13 @@
     "diags": {
         "Exercícios": {
             "weight": 1.0,
-            "type": "feedback",
+            "type": "grade",
             "codes": [
-                "Exercício 1",
-                "Exercício 2",
-                "Exercício 3",
-                "Exercício 4",
-                "Exercício 5"
+                "Exercícios 1",
+                "Exercícios 2",
+                "Exercícios 3",
+                "Exercícios 4",
+                "Exercícios 5"
             ]
         },
         "Carrosséis": {
@@ -20,9 +20,7 @@
             "type": "grade",
             "codes": [
                 "Carrossel 1",
-                "Carrossel 2",
-                "Carrossel 3",
-                "Carrossel 4"
+                "Carrossel 2"
             ]
         }
     },

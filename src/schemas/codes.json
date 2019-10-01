@@ -1,43 +1,47 @@
 {
     "diagsOrder": [
         "Quizzes Individuais",
-        "Quizzes Coletivos"
+        "Quizzes Coletivos",
+        "Atividades Práticas Supervisionadas"
     ],
     "diags": {
         "Quizzes Individuais": {
             "weight": 2.0,
             "type": "grade",
             "codes": [
-                "Quiz Individual 1",
-                "Quiz Individual 2",
-                "Quiz Individual 3",
-                "Quiz Individual 4",
-                "Quiz Individual 5",
-                "Quiz Individual 6",
-                "Quiz Individual 7",
-                "Quiz Individual 8",
-                "Quiz Individual 9",
-                "Quiz Individual 10",
-                "Quiz Individual 11",
-                "Quiz Individual 12",
-                "Quiz Individual 13"
+                "Quiz Individual da Aula 1",
+                "Quiz Individual da Aula 2",
+                "Quiz Individual da Aula 3",
+                "Quiz Individual da Aula 4",
+                "Quiz Individual da Aula 6",
+                "Quiz Individual da Aula 7",
+                "Quiz Individual da Aula 9",
+                "Quiz Individual da Aula 13",
+                "Quiz Individual da Aula 15",
+                "Quiz Individual da Aula 18"
             ]
         },
         "Quizzes Coletivos": {
             "weight": 1.0,
             "type": "grade",
             "codes": [
-                "Quiz Coletivo 1",
-                "Quiz Coletivo 2",
-                "Quiz Coletivo 3",
-                "Quiz Coletivo 4",
-                "Quiz Coletivo 5",
-                "Quiz Coletivo 6",
-                "Quiz Coletivo 7",
-                "Quiz Coletivo 8",
-                "Quiz Coletivo 9",
-                "Quiz Coletivo 10",
-                "Quiz Coletivo 11"
+                "Quiz Coletivo da Aula 1",
+                "Quiz Coletivo da Aula 2",
+                "Quiz Coletivo da Aula 3",
+                "Quiz Coletivo da Aula 4",
+                "Quiz Coletivo da Aula 6",
+                "Quiz Coletivo da Aula 7",
+                "Quiz Coletivo da Aula 15",
+                "Quiz Coletivo da Aula 18"
+            ]
+        },
+        "Atividades Práticas Supervisionadas": {
+            "weight": 1.0,
+            "type": "grade",
+            "codes": [
+                "APS 2",
+                "APS 3",
+                "APS 4"
             ]
         }
     },
@@ -46,7 +50,6 @@
         "FE2",
         "FE3",
         "FE4",
-        "FE5",
         "UX1",
         "UX2",
         "UX3",
@@ -80,12 +83,6 @@
         },
         "FE4": {
             "title": "Implementar designs adaptativos em CSS",
-            "evals": {
-                "Projeto 1": 1.0
-            }
-        },
-        "FE5": {
-            "title": "Entender conceitos básicos de JavaScript",
             "evals": {
                 "Projeto 1": 1.0
             }
