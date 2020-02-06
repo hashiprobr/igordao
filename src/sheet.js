@@ -95,6 +95,72 @@ export default {
     return 'A+';
   },
 
+  mergepp: function(grades) {
+    var sum = 0;
+
+    var min = 10;
+
+    for (var i = 0; i < grades.length; i++) {
+      switch (grades[i]) {
+        case 'A+':
+          if (min > 10) min = 10;
+          sum += 10;
+          break;
+        case 'A':
+          if (min > 9) min = 9;
+          sum += 9
+          break;
+        case 'B+':
+          if (min > 8) min = 8;
+          sum += 8
+          break;
+        case 'B':
+          if (min > 7) min = 7;
+          sum += 7
+          break;
+        case 'C+':
+          if (min > 6) min = 6;
+          sum += 6
+          break;
+        case 'C':
+          if (min > 5) min = 5;
+          sum += 5
+          break;
+        case 'D':
+          if (min > 2.5) min = 2.5;
+          sum += 2.5
+          break;
+        default:
+          if (min > 0) min = 0;
+      }
+    }
+
+    var mean = (sum - min) / (grades.length - 1);
+
+    if (mean < 2.25)  {
+      return 'I';
+    }
+    if (mean < 4.5)  {
+      return 'D';
+    }
+    if (mean < 5.5)  {
+      return 'C';
+    }
+    if (mean < 6.5)  {
+      return 'C+';
+    }
+    if (mean < 7.5)  {
+      return 'B';
+    }
+    if (mean < 8.5)  {
+      return 'B+';
+    }
+    if (mean < 9.5)  {
+      return 'A';
+    }
+    return 'A+';
+  },
+
   convert: function(grade) {
     switch (grade) {
       case 'A+':

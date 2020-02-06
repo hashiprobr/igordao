@@ -2,6 +2,7 @@
     "diagsOrder": [
         "Quizzes Individuais",
         "Quizzes Coletivos",
+        "Testes de Usabilidade",
         "Atividades Práticas Supervisionadas"
     ],
     "diags": {
@@ -17,8 +18,7 @@
                 "Quiz Individual da Aula 7",
                 "Quiz Individual da Aula 9",
                 "Quiz Individual da Aula 13",
-                "Quiz Individual da Aula 15",
-                "Quiz Individual da Aula 18"
+                "Quiz Individual da Aula 15"
             ]
         },
         "Quizzes Coletivos": {
@@ -30,9 +30,15 @@
                 "Quiz Coletivo da Aula 3",
                 "Quiz Coletivo da Aula 4",
                 "Quiz Coletivo da Aula 6",
-                "Quiz Coletivo da Aula 7",
-                "Quiz Coletivo da Aula 15",
-                "Quiz Coletivo da Aula 18"
+                "Quiz Coletivo da Aula 7"
+            ]
+        },
+        "Testes de Usabilidade": {
+            "weight": 2.0,
+            "type": "grade",
+            "codes": [
+                "Testes da Feira 1",
+                "Testes da Feira 2"
             ]
         },
         "Atividades Práticas Supervisionadas": {
@@ -40,8 +46,7 @@
             "type": "grade",
             "codes": [
                 "APS 2",
-                "APS 3",
-                "APS 4"
+                "APS 3"
             ]
         }
     },

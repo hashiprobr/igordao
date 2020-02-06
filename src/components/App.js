@@ -5,8 +5,6 @@ import GoalPage from './GoalPage';
 import MeanPage from './MeanPage';
 
 import codes from '../schemas/codes';
-import desprog from '../schemas/desprog';
-import redesoc from '../schemas/redesoc';
 
 import sheet from '../sheet';
 
@@ -16,8 +14,6 @@ class App extends Component {
     this.schemaMissing = true;
     this.schema = {
       codes: codes,
-      desprog: desprog,
-      redesoc: redesoc,
     };
     this.stateMissing = true;
     this.state = {
@@ -37,6 +33,7 @@ class App extends Component {
     this.consolidations = {
       feedback: sheet.rubric,
       grade: sheet.merge,
+      gradepp: sheet.mergepp,
     };
     this.handleFileReaderLoad = this.handleFileReaderLoad.bind(this);
     this.handleFileInputChange = this.handleFileInputChange.bind(this);

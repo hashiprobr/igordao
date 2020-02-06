@@ -19,6 +19,16 @@ class Item extends Component {
         'A': 'success',
         'A+': 'success',
       },
+      gradepp: {
+        'I': 'failure',
+        'D': 'failure',
+        'C': 'success',
+        'C+': 'success',
+        'B': 'success',
+        'B+': 'success',
+        'A': 'success',
+        'A+': 'success',
+      },
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
