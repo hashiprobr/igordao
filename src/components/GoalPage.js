@@ -5,6 +5,12 @@ class GoalPage extends Component {
   render() {
     return (
       <section>
+        <p className="description">
+          Os conceitos desta página são <em>essenciais</em>, ou seja, importam para
+          aprovação. São os mesmos conceitos da página de avaliações, mas aqui estão
+          agrupados por objetivo. Se algum título desta página estiver vermelho,
+          você ainda não atingiu o objetivo.
+        </p>
         {this.props.schema.goalsOrder.map((code, index) => {
           let titles = this.props.schema.evalsOrder.filter(title => {
             return title in this.props.schema.goals[code].evals;

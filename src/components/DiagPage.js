@@ -5,6 +5,11 @@ class DiagPage extends Component {
   render() {
     return (
       <section>
+        <p className="description">
+          Os conceitos desta página são <em>complementares</em>, ou seja,
+          não importam para aprovação. Você pode ser aprovado mesmo se
+          forem baixos e pode ser reprovado mesmo se forem altos.
+        </p>
         {this.props.schema.diagsOrder.map((title, index) => {
           return <DiagItemSet key={index}
                               title={title}

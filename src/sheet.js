@@ -236,13 +236,14 @@ export default {
       }
     }
 
-    if (failed || essentialMean < 5) {
+    if (failed) {
       return Math.min(4, essentialMean);
     }
 
-    var sum = 9 * essentialMean + complementaryMean;
-    var num = 10;
+    if (essentialMean < 5) {
+      return essentialMean;
+    }
 
-    return Math.max(5, this.round(sum / num));
+    return Math.min(10, this.round(essentialMean + 0.1 * complementaryMean));
   }
 };

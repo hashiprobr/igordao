@@ -7,6 +7,7 @@ class MeanItemSet extends Component {
       <div key="div" className="response">
         {this.props.response}
       </div>,
+      <p key="p" className="sub-description">{this.props.description}</p>,
     ];
   }
 }

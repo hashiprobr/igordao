@@ -1,0 +1,156 @@
+{
+    "diagsOrder": [
+        "Quizzes",
+        "Conceitos Descartados das APS"
+    ],
+    "diags": {
+        "Quizzes": {
+            "weight": 1.0,
+            "type": "grade",
+            "codes": [
+                "Quiz 1",
+                "Quiz 2",
+                "Quiz 3",
+                "Quiz 4",
+                "Quiz 5",
+                "Quiz 6",
+                "Quiz 7",
+                "Quiz 8",
+                "Quiz 9"
+            ]
+        },
+        "Conceitos Descartados das APS": {
+            "weight": 1.0,
+            "type": "grade",
+            "codes": [
+                "Objetivo AN1"
+            ]
+        }
+    },
+    "goalsOrder": [
+        "AP1",
+        "AP2",
+        "AN1",
+        "AN2",
+        "AN3",
+        "AN4",
+        "EV1",
+        "EV2",
+        "CR1"
+    ],
+    "goals": {
+        "AP1": {
+            "title": "Simular algoritmos procedurais recursivos",
+            "evals": {
+                "Prova 1 Questão 1": 3.0,
+                "Prova 1 Questão 2": 3.0,
+                "Prova 1 Questão 3": 3.0
+            }
+        },
+        "AP2": {
+            "title": "Simular algoritmos clássicos e estruturas de dados clássicas",
+            "evals": {
+                "Prova 2 Questão 1": 1.0,
+                "Prova 2 Questão 2": 1.0,
+                "Prova 2 Questão 3": 1.0,
+                "Prova 3 Questão 1": 1.0,
+                "Prova 3 Questão 2": 1.0,
+                "Prova 4 Questão 1": 1.0,
+                "Prova 4 Questão 2": 1.0,
+                "Prova 4 Questão 3": 1.0,
+                "Prova 4 Questão 4": 1.0
+            }
+        },
+        "AN1": {
+            "title": "Implementar algoritmos procedurais a partir de descrições de alto nível",
+            "evals": {
+                "APS": 12.0
+            }
+        },
+        "AN2": {
+            "title": "Implementar algoritmos procedurais recursivos a partir de problemas simples",
+            "evals": {
+                "Prova 1 Questão 4": 4.0,
+                "Prova 1 Questão 5": 4.0,
+                "Prova 1 Questão 6": 4.0
+            }
+        },
+        "AN3": {
+            "title": "Analisar a eficiência de algoritmos procedurais simples",
+            "evals": {
+                "Prova 2 Questão 4": 2.4,
+                "Prova 2 Questão 5": 2.4,
+                "Prova 2 Questão 6": 2.4,
+                "Prova 3 Questão 3": 2.4,
+                "Prova 4 Questão 5": 2.4
+            }
+        },
+        "AN4": {
+            "title": "Modificar estruturas de dados lineares em linguagens de baixo nível",
+            "evals": {
+                "Prova 0": 4.0,
+                "Prova 3 Questão 4": 4.0,
+                "Prova 3 Questão 5": 4.0
+            }
+        },
+        "EV1": {
+            "title": "Avaliar algoritmos clássicos a partir de um contexto",
+            "evals": {
+                "Prova 2 Questão 7": 5.0,
+                "Prova 2 Questão 8": 5.0,
+                "Prova 3 Questão 6": 5.0
+            }
+        },
+        "EV2": {
+            "title": "Avaliar estruturas de dados clássicas a partir de um contexto",
+            "evals": {
+                "Prova 3 Questão 7": 3.0,
+                "Prova 3 Questão 8": 3.0,
+                "Prova 4 Questão 6": 3.0,
+                "Prova 4 Questão 7": 3.0,
+                "Prova 4 Questão 8": 3.0
+            }
+        },
+        "CR1": {
+            "title": "Desenhar dinâmicas de aprendizado ativo",
+            "evals": {
+                "Projeto": 18.0
+            }
+        }
+    },
+    "evalsOrder": [
+        "Prova 0",
+        "APS",
+        "Prova 1 Questão 1",
+        "Prova 1 Questão 2",
+        "Prova 1 Questão 3",
+        "Prova 1 Questão 4",
+        "Prova 1 Questão 5",
+        "Prova 1 Questão 6",
+        "Prova 2 Questão 1",
+        "Prova 2 Questão 2",
+        "Prova 2 Questão 3",
+        "Prova 2 Questão 4",
+        "Prova 2 Questão 5",
+        "Prova 2 Questão 6",
+        "Prova 2 Questão 7",
+        "Prova 2 Questão 8",
+        "Prova 3 Questão 1",
+        "Prova 3 Questão 2",
+        "Prova 3 Questão 3",
+        "Prova 3 Questão 4",
+        "Prova 3 Questão 5",
+        "Prova 3 Questão 6",
+        "Prova 3 Questão 7",
+        "Prova 3 Questão 8",
+        "Prova 4 Questão 1",
+        "Prova 4 Questão 2",
+        "Prova 4 Questão 3",
+        "Prova 4 Questão 4",
+        "Prova 4 Questão 5",
+        "Prova 4 Questão 6",
+        "Prova 4 Questão 7",
+        "Prova 4 Questão 8",
+        "Projeto"
+    ]
+}

@@ -81,6 +81,20 @@ h2 {
   color: #ff0000;
 }
 
+em {
+  font-style: italic;
+}
+
+.description {
+  margin: 0 4rem;
+}
+
+.sub-description {
+  font-style: italic;
+  font-weight: bold;
+  margin: 0 1rem 2rem 4rem;
+}
+
 .item-set {
   display: grid;
   grid-gap: 1rem;
@@ -111,5 +125,5 @@ h2 {
 .response {
   font-size: 4rem;
   line-height: 1;
-  margin: 0 1rem 2rem 4rem;
+  margin: 0 1rem 1rem 4rem;
 }

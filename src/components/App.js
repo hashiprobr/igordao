@@ -4,7 +4,9 @@ import EvalPage from './EvalPage';
 import GoalPage from './GoalPage';
 import MeanPage from './MeanPage';
 
-import codes from '../schemas/codes';
+import desagil from '../schemas/desagil';
+import desprog from '../schemas/desprog';
+import redesoc from '../schemas/redesoc';
 
 import sheet from '../sheet';
 
@@ -13,7 +15,9 @@ class App extends Component {
     super(props);
     this.schemaMissing = true;
     this.schema = {
-      codes: codes,
+      desagil: desagil,
+      desprog: desprog,
+      redesoc: redesoc,
     };
     this.stateMissing = true;
     this.state = {
@@ -133,8 +137,11 @@ class App extends Component {
   }
 
   calculateFinMean(goalAll, cmpMean, essMean) {
-    if (goalAll && essMean >= 5) {
-      return Math.max(5, sheet.round((cmpMean + 9 * essMean) / 10));
+    if (goalAll) {
+      if (essMean >= 5) {
+        return Math.min(10, sheet.round(essMean + 0.1 * cmpMean));
+      }
+      return essMean;
     }
     return Math.min(4, essMean);
   }
@@ -295,7 +302,7 @@ class App extends Component {
       );
     }
 
-    let alert = this.state.essMean < 5;
+    let meanLow = this.state.essMean < 5;
 
     let names = [
       'Diagnósticos',
@@ -321,7 +328,8 @@ class App extends Component {
                 cmpMean={this.state.cmpMean}
                 essMean={this.state.essMean}
                 finMean={this.state.finMean}
-                alert={alert}/>,
+                goalAll={this.state.goalAll}
+                meanLow={meanLow}/>,
     ];
 
     return [
@@ -336,7 +344,7 @@ class App extends Component {
               if (name === 'Objetivos' && !this.state.goalAll) {
                 classNames.push('alert');
               }
-              if (name === 'Médias' && alert) {
+              if (name === 'Médias' && (!this.state.goalAll || meanLow)) {
                 classNames.push('alert');
               }
               return (

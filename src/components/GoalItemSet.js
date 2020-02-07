@@ -49,7 +49,7 @@ class GoalItemSet extends Component {
           ];
         })}
         <p className="highlight">Mediana</p><span>{this.props.result}</span>
-        <p className="highlight">Delta</p>{diff}
+        <p className="highlight">Fez delta e passou</p>{diff}
       </div>,
     ];
   }

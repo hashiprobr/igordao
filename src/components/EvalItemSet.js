@@ -17,7 +17,7 @@ class EvalItemSet extends Component {
       <div key="div" className="item-set">
         {this.props.codes.map((code, index) => {
           return [
-            <p key={'p' + index}>{code}</p>,
+            <p key={'p' + index}>Objetivo {code}</p>,
             <Item key={'Item' + index}
                   code={code}
                   type={this.props.type}
