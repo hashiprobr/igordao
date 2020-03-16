@@ -209,7 +209,7 @@ export default {
       grades.push(this.convert(args[i]));
     }
 
-    grades = grades.sort(function(a, b) { return a - b; });
+    grades.sort(function(a, b) { return a - b; });
 
     var index = Math.floor((grades.length - 1) / 2);
 
