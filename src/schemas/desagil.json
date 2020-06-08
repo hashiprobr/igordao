@@ -3,7 +3,6 @@
         "Quizzes Individuais",
         "Quizzes Coletivos",
         "Conceitos Descartados das APS",
-        "Quizzes Técnicos",
         "Conceitos Descartados do Projeto 1"
     ],
     "diags": {
@@ -40,14 +39,6 @@
                 "Objetivo DA1"
             ]
         },
-        "Quizzes Técnicos": {
-            "weight": 1.0,
-            "type": "grade",
-            "codes": [
-                "Quiz Técnico 1",
-                "Quiz Técnico 2"
-            ]
-        },
         "Conceitos Descartados do Projeto 1": {
             "weight": 2.0,
             "type": "grade",
@@ -75,53 +66,46 @@
         "ED1": {
             "title": "Simular buscas clássicas em árvores binárias",
             "evals": {
-                "Prova Teórica 1": 4.5,
-                "Prova Teórica 2": 4.5
+                "Provas Teóricas": 9.0
             }
         },
         "OO1": {
             "title": "Entender conceitos básicos de programação orientada a objetos",
             "evals": {
-                "Prova Teórica 1": 3.0,
-                "Prova Teórica 2": 3.0
+                "Provas Teóricas": 6.0
             }
         },
         "OO2": {
             "title": "Seguir práticas básicas de programação",
             "evals": {
                 "APS": 3.0,
-                "Prova Prática Questão 1": 3.0,
-                "Prova Prática Questão 2": 3.0
+                "Prova Prática Questão 1": 6.0
             }
         },
         "OO3": {
             "title": "Implementar programas orientados a objetos a partir de descrições de alto nível",
             "evals": {
-                "Prova Teórica 1": 6.0,
-                "Prova Teórica 2": 6.0
+                "Provas Teóricas": 12.0
             }
         },
         "OO4": {
             "title": "Refatorar programas simples",
             "evals": {
                 "APS": 4.0,
-                "Prova Prática Questão 3": 4.0,
-                "Prova Prática Questão 4": 4.0
+                "Prova Prática Questão 2": 8.0
             }
         },
         "ES1": {
             "title": "Entender conceitos clássicos de engenharia de software",
             "evals": {
-                "Prova Teórica 1": 3.0,
-                "Prova Teórica 2": 3.0
+                "Provas Teóricas": 6.0
             }
         },
         "DA1": {
             "title": "Satisfazer requisitos de software",
             "evals": {
                 "APS": 3.0,
-                "Prova Prática Questão 1": 3.0,
-                "Prova Prática Questão 2": 3.0
+                "Prova Prática Questão 1": 6.0
             }
         },
         "DA2": {
@@ -154,14 +138,11 @@
         }
     },
     "evalsOrder": [
-        "Prova Teórica 1",
+        "Provas Teóricas",
         "APS",
-        "Prova Teórica 2",
         "Prova Técnica",
         "Prova Prática Questão 1",
         "Prova Prática Questão 2",
-        "Prova Prática Questão 3",
-        "Prova Prática Questão 4",
         "Projeto 1",
         "Projeto 2"
     ]
