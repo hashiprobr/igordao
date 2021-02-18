@@ -4,4 +4,4 @@ import './reset.css';
 import './index.css';
 import App from './components/App';
 
-ReactDOM.render(<App/>, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));

@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 import GoalItemSet from './GoalItemSet';
 
 class GoalPage extends Component {
-  render() {
-    return (
-      <section>
-        <p className="description">
-          Os conceitos desta página são <em>essenciais</em>, ou seja, importam para
+    render() {
+        return (
+            <section>
+                <p className="description">
+                    Os conceitos desta página são <em>essenciais</em>, ou seja, importam para
           aprovação. São os mesmos conceitos da página de avaliações, mas aqui estão
           agrupados por objetivo. Se algum título desta página estiver vermelho,
           você ainda não atingiu o objetivo.
         </p>
-        {this.props.schema.goalsOrder.map((code, index) => {
-          let titles = this.props.schema.evalsOrder.filter(title => {
-            return title in this.props.schema.goals[code].evals;
-          });
-          let report = {};
-          for (let title of titles) {
-            report[title] = this.props.report.evals[title][code];
-          }
-          return <GoalItemSet key={index}
-                              code={code}
-                              title={code + ': ' + this.props.schema.goals[code].title}
-                              type="grade"
-                              codes={titles}
-                              report={report}
-                              result={this.props.report.goalMeds[code]}
-                              diff={this.props.report.diffs[code]}
-                              response={this.props.report.goalSits[code]}
-                              onDiffChange={this.props.onDiffChange}
-                              onEvalChange={this.props.onEvalChange}/>;
-        })}
-      </section>
-    );
-  }
+                {this.props.schema.goalsOrder.map((code, index) => {
+                    let titles = this.props.schema.evalsOrder.filter(title => {
+                        return title in this.props.schema.goals[code].evals;
+                    });
+                    let report = {};
+                    for (let title of titles) {
+                        report[title] = this.props.report.evals[title][code];
+                    }
+                    return <GoalItemSet key={index}
+                        code={code}
+                        title={code + ': ' + this.props.schema.goals[code].title}
+                        type="grade"
+                        codes={titles}
+                        report={report}
+                        result={this.props.report.goalMeds[code]}
+                        diff={this.props.report.diffs[code]}
+                        response={this.props.report.goalSits[code]}
+                        onDiffChange={this.props.onDiffChange}
+                        onEvalChange={this.props.onEvalChange} />;
+                })}
+            </section>
+        );
+    }
 }
 
 export default GoalPage;
