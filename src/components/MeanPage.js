@@ -3,34 +3,48 @@ import MeanItemSet from './MeanItemSet';
 
 class MeanPage extends Component {
     render() {
-        let reached = 0;
-        for (let code of Object.keys(this.props.goalSits)) {
-            if (this.props.goalSits[code]) {
-                reached++;
+        let achieved = 0;
+        let results = Object.values(this.props.gResults);
+        for (let result of results) {
+            if (result) {
+                achieved++;
             }
         }
-        return (
-            <section>
-                <p className="description">
-                    Se algum título desta página estiver vermelho, você ainda não está aprovado
-                    na disciplina.
-        </p>
-                <MeanItemSet title="Objetivos Atingidos"
-                    response={reached + '/' + Object.keys(this.props.goalSits).length}
-                    alert={!this.props.goalAll}
-                    description="Um objetivo que não foi atingido limita a média final a 4." />
-                <MeanItemSet title="Média dos Conceitos Essenciais"
-                    response={this.props.essMean}
-                    alert={this.props.meanLow}
-                    description="Uma média essencial abaixo de 5 limita a média final ao mesmo valor." />
-                <MeanItemSet title="Média dos Conceitos Complementares"
-                    response={this.props.cmpMean}
-                    description="Se algum título estiver vermelho, essa média complementar é ignorada." />
-                <MeanItemSet title="Média Final"
-                    response={this.props.finMean}
-                    description="Se nenhum título estiver vermelho, 100% da essencial mais 10% da complementar." />
-            </section>
-        );
+
+        return [
+            <p key="p">
+                Se algum título desta página estiver vermelho, você ainda
+                não está aprovado na disciplina.
+            </p>,
+            <MeanItemSet
+                key="eval"
+                failed={this.props.low}
+                name="Média dos Conceitos Essenciais"
+                content={this.props.eMean}
+                description="Uma média essencial abaixo de 5 limita a média final a 4."
+            />,
+            <MeanItemSet
+                key="goal"
+                failed={this.props.failed}
+                name="Objetivos Atingidos"
+                content={achieved + '/' + results.length}
+                description="Um objetivo que não foi atingido limita a média final a 4."
+            />,
+            <MeanItemSet
+                key="diag"
+                failed={false}
+                name="Média dos Conceitos Complementares"
+                content={this.props.cMean}
+                description="Se algum título estiver vermelho, essa média complementar é ignorada."
+            />,
+            <MeanItemSet
+                key="show"
+                failed={false}
+                name="Nota Final"
+                content={this.props.fGrade}
+                description="Se nenhum título estiver vermelho, 100% da essencial mais 10% da complementar."
+            />,
+        ];
     }
 }
 

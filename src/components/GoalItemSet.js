@@ -4,52 +4,80 @@ import Item from './Item';
 class GoalItemSet extends Component {
     constructor(props) {
         super(props);
-        this.handleCheckboxInputChange = this.handleCheckboxInputChange.bind(this);
         this.handleItemChange = this.handleItemChange.bind(this);
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     }
 
-    handleCheckboxInputChange(event) {
-        this.props.onDiffChange(this.props.code, event.target.checked ? 'S?' : 'N?');
+    handleItemChange(eName, grade) {
+        this.props.onEvalChange(eName, this.props.g, grade);
     }
 
-    handleItemChange(code, value) {
-        this.props.onEvalChange(code, this.props.code, value);
+    handleCheckboxChange(event) {
+        let delta = event.target.checked ? 'S' : 'N';
+        this.props.onGoalChange(this.props.g.code, delta + '?');
     }
 
     render() {
-        let diff;
-        switch (this.props.diff) {
+        let checkbox;
+        switch (this.props.delta) {
             case 'N':
-                diff = <span>☐</span>;
+                checkbox = (
+                    <span className="item">
+                        ✗
+                    </span>
+                );
                 break;
             case 'S':
-                diff = <span>☑</span>;
+                checkbox = (
+                    <span className="item">
+                        ✓
+                    </span>
+                );
                 break;
             default:
-                let checked;
-                if (this.props.diff.substr(-1) === '?') {
-                    checked = this.props.diff.substr(0, this.props.diff.length - 1);
+                let checked = this.props.delta;
+                if (checked.endsWith('?')) {
+                    checked = checked.slice(0, -1);
                 }
-                diff = <input type="checkbox"
-                    defaultChecked={checked === 'S'}
-                    onChange={this.handleCheckboxInputChange} />;
+                checkbox = (
+                    <input
+                        type="checkbox"
+                        className="item"
+                        defaultChecked={checked === 'S'}
+                        onChange={this.handleCheckboxChange}
+                    />
+                );
         }
 
         return [
-            <h2 key="h2" className={this.props.response ? null : 'sub-alert'}>{this.props.title}</h2>,
+            <h2 key="h2" className={this.props.gResult ? null : 'alert'}>
+                {this.props.g.code}: {this.props.g.name}
+            </h2>,
             <div key="div" className="item-set">
-                {this.props.codes.map((code, index) => {
+                {this.props.g.evals.map((e, index) => {
+                    let eName = this.props.evals[e.index];
                     return [
-                        <p key={'p' + index}>{code}</p>,
-                        <Item key={'Item' + index}
-                            code={code}
-                            type={this.props.type}
-                            value={this.props.report[code]}
-                            onChange={this.handleItemChange} />,
+                        <span key={'span' + index}>
+                            {eName}
+                        </span>,
+                        <Item
+                            key={'Item' + index}
+                            id={eName}
+                            grade={this.props.eGrades[eName][this.props.g.code]}
+                            onChange={this.handleItemChange}
+                        />,
                     ];
                 })}
-                <p className="highlight">Mediana</p><span>{this.props.result}</span>
-                <p className="highlight">Fez delta e passou</p>{diff}
+                <span className="highlight">
+                    Mediana
+                </span>
+                <span className="item">
+                    {this.props.gMedian}
+                </span>
+                <span className="highlight">
+                    Fez delta e foi bem
+                </span>
+                {checkbox}
             </div>,
         ];
     }

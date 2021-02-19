@@ -3,57 +3,62 @@ import React, { Component } from 'react';
 class Item extends Component {
     constructor(props) {
         super(props);
-        this.options = {
-            feedback: {
-                'N': 'failure',
-                'P': 'partial',
-                'T': 'success',
-            },
-            grade: {
-                'I': 'failure',
-                'D': 'failure',
-                'C': 'success',
-                'C+': 'success',
-                'B': 'success',
-                'B+': 'success',
-                'A': 'success',
-                'A+': 'success',
-            },
-            gradepp: {
-                'I': 'failure',
-                'D': 'failure',
-                'C': 'success',
-                'C+': 'success',
-                'B': 'success',
-                'B+': 'success',
-                'A': 'success',
-                'A+': 'success',
-            },
-        };
+        this.grades = ['I', 'D', 'C', 'C+', 'B', 'B+', 'A', 'A+'];
         this.handleSelectChange = this.handleSelectChange.bind(this);
     }
 
     handleSelectChange(event) {
-        this.props.onChange(this.props.code, event.target.selectedOptions[0].text + '?');
+        let grade = event.target.selectedOptions[0].text;
+        this.props.onChange(this.props.id, grade + '?');
+    }
+
+    getClassName(grade) {
+        if (grade === 'I') {
+            return 'insufficient';
+        }
+        if (grade === 'D') {
+            return 'developing';
+        }
+        if (grade === 'C' || grade === 'C+') {
+            return 'essential';
+        }
+        if (grade === 'B' || grade === 'B+') {
+            return 'proficient';
+        }
+        return 'advanced';
     }
 
     render() {
-        let options = this.options[this.props.type];
-
-        if (this.props.value in options) {
-            return <span className={options[this.props.value]}>{this.props.value}</span>;
+        if (this.grades.includes(this.props.grade)) {
+            return (
+                <span className={'item ' + this.getClassName(this.props.grade)}>
+                    {this.props.grade}
+                </span>
+            );
         }
 
-        let selected;
-        if (this.props.value.substr(-1) === '?') {
-            selected = this.props.value.substr(0, this.props.value.length - 1);
+        let selected = this.props.grade;
+        if (selected.endsWith('?')) {
+            selected = selected.slice(0, -1);
+        }
+        if (!this.grades.includes(selected)) {
+            selected = 'I';
         }
 
         return (
-            <select defaultValue={selected}
-                onChange={this.handleSelectChange}>
-                {Object.keys(options).map((value, index) => {
-                    return <option key={index}>{value}</option>;
+            <select className="item"
+                defaultValue={selected}
+                onChange={this.handleSelectChange}
+            >
+                {this.grades.map((grade, index) => {
+                    return (
+                        <option
+                            key={index}
+                            className={this.getClassName(grade)}
+                        >
+                            {grade}
+                        </option>
+                    );
                 })}
             </select>
         );

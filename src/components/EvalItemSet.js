@@ -7,22 +7,35 @@ class EvalItemSet extends Component {
         this.handleItemChange = this.handleItemChange.bind(this);
     }
 
-    handleItemChange(code, value) {
-        this.props.onChange(this.props.title, code, value);
+    handleItemChange(gCode, grade) {
+        for (let r of this.props.reverse) {
+            let g = r.g;
+            if (g.code === gCode) {
+                this.props.onChange(this.props.eName, g, grade);
+                return;
+            }
+        }
     }
 
     render() {
         return [
-            <h2 key="h2">{this.props.title}</h2>,
+            <h2 key="h2">
+                {this.props.eName}
+            </h2>,
             <div key="div" className="item-set">
-                {this.props.codes.map((code, index) => {
+                {this.props.reverse.map((r, index) => {
+                    let g = r.g;
+                    let eWeight = r.eWeight;
                     return [
-                        <p key={'p' + index}>Objetivo {code}</p>,
-                        <Item key={'Item' + index}
-                            code={code}
-                            type={this.props.type}
-                            value={this.props.report[code]}
-                            onChange={this.handleItemChange} />,
+                        <span key={'span' + index}>
+                            Objetivo {g.code} <em>(peso {eWeight})</em>
+                        </span>,
+                        <Item
+                            key={'Item' + index}
+                            id={g.code}
+                            grade={this.props.grades[g.code]}
+                            onChange={this.handleItemChange}
+                        />,
                     ];
                 })}
             </div>,

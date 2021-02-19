@@ -3,36 +3,30 @@ import GoalItemSet from './GoalItemSet';
 
 class GoalPage extends Component {
     render() {
-        return (
-            <section>
-                <p className="description">
-                    Os conceitos desta página são <em>essenciais</em>, ou seja, importam para
-          aprovação. São os mesmos conceitos da página de avaliações, mas aqui estão
-          agrupados por objetivo. Se algum título desta página estiver vermelho,
-          você ainda não atingiu o objetivo.
-        </p>
-                {this.props.schema.goalsOrder.map((code, index) => {
-                    let titles = this.props.schema.evalsOrder.filter(title => {
-                        return title in this.props.schema.goals[code].evals;
-                    });
-                    let report = {};
-                    for (let title of titles) {
-                        report[title] = this.props.report.evals[title][code];
-                    }
-                    return <GoalItemSet key={index}
-                        code={code}
-                        title={code + ': ' + this.props.schema.goals[code].title}
-                        type="grade"
-                        codes={titles}
-                        report={report}
-                        result={this.props.report.goalMeds[code]}
-                        diff={this.props.report.diffs[code]}
-                        response={this.props.report.goalSits[code]}
-                        onDiffChange={this.props.onDiffChange}
-                        onEvalChange={this.props.onEvalChange} />;
-                })}
-            </section>
-        );
+        return [
+            <p key="p">
+                Os conceitos desta página são <em>essenciais</em>, ou
+                seja, importam para aprovação. São os mesmos conceitos da
+                página de avaliações, mas aqui estão agrupados por
+                objetivo. Se algum título desta página estiver vermelho,
+                você ainda não atingiu o objetivo.
+            </p>,
+            this.props.schema.goals.map((g, index) => {
+                return (
+                    <GoalItemSet
+                        key={index}
+                        g={g}
+                        evals={this.props.schema.evals}
+                        eGrades={this.props.report['Avaliações']}
+                        delta={this.props.report['Deltas'][g.code]}
+                        gMedian={this.props.gMedians[g.code]}
+                        gResult={this.props.gResults[g.code]}
+                        onEvalChange={this.props.onEvalChange}
+                        onGoalChange={this.props.onGoalChange}
+                    />
+                );
+            }),
+        ];
     }
 }
 

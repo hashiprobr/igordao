@@ -3,10 +3,9 @@ import DiagPage from './DiagPage';
 import EvalPage from './EvalPage';
 import GoalPage from './GoalPage';
 import MeanPage from './MeanPage';
+import sheet from '../sheet';
 
 import desprog from '../schemas/desprog';
-
-import sheet from '../sheet';
 
 class App extends Component {
     constructor(props) {
@@ -19,127 +18,110 @@ class App extends Component {
         this.state = {
             error: false,
             index: 0,
-            diags: null,
-            evals: null,
-            diffs: null,
-            diagCons: null,
-            goalMeds: null,
-            goalSits: null,
-            goalAll: false,
-            cmpMean: null,
-            essMean: null,
-            finMean: null,
+            report: null,
+            eMean: null,
+            gMedians: null,
+            gResults: null,
+            failed: null,
+            cMean: null,
+            fGrade: null,
         };
-        this.consolidations = {
-            feedback: sheet.rubric,
-            grade: sheet.merge,
-            gradepp: sheet.mergepp,
-        };
+        this.reverse = {};
         this.handleFileReaderLoad = this.handleFileReaderLoad.bind(this);
+        this.handleFileReaderError = this.handleFileReaderError.bind(this);
         this.handleFileInputChange = this.handleFileInputChange.bind(this);
         this.handleDiagPageChange = this.handleDiagPageChange.bind(this);
         this.handleEvalPageChange = this.handleEvalPageChange.bind(this);
         this.handleGoalPageChange = this.handleGoalPageChange.bind(this);
-        this.handleHeaderNavLiClick = this.handleHeaderNavLiClick.bind(this);
+        this.handlePageNameClick = this.handlePageNameClick.bind(this);
     }
 
     isValid(report) {
-        if (!report || !('Diagnósticos' in report) || !('Avaliações' in report) || !('Deltas' in report)) {
+        if (!report || typeof report !== 'object') {
             return false;
         }
-        let title, code;
-        for (title of this.schema.diagsOrder) {
-            if (!(title in report['Diagnósticos'])) {
+        let eGrades = report['Avaliações'];
+        if (!eGrades || typeof eGrades !== 'object') {
+            return false;
+        }
+        let gDeltas = report['Deltas'];
+        if (!gDeltas || typeof gDeltas !== 'object') {
+            return false;
+        }
+        let dGrades = report['Diagnósticos'];
+        if (!dGrades || typeof dGrades !== 'object') {
+            return false;
+        }
+        for (let eName of this.schema.evals) {
+            let e = eGrades[eName];
+            if (!e || typeof e !== 'object') {
                 return false;
             }
-            for (code of this.schema.diags[title].codes) {
-                if (!(code in report['Diagnósticos'][title])) {
+        }
+        for (let g of this.schema.goals) {
+            for (let e of g.evals) {
+                let eName = this.schema.evals[e.index];
+                if (typeof eGrades[eName][g.code] !== 'string') {
                     return false;
                 }
+            }
+            if (typeof gDeltas[g.code] !== 'string') {
+                return false;
             }
         }
-        for (code of this.schema.goalsOrder) {
-            for (title of Object.keys(this.schema.goals[code].evals)) {
-                if (!(title in report['Avaliações']) || !(code in report['Avaliações'][title])) {
-                    return false;
-                }
-            }
-            if (!(code in report['Deltas'])) {
+        for (let d of this.schema.diags) {
+            if (typeof dGrades[d.name] !== 'string') {
                 return false;
             }
         }
         return true;
     }
 
-    consolidateDiags(schema, report) {
-        let values = [];
-        for (let code of Object.keys(report)) {
-            let value = report[code];
-            if (value.substr(-1) === '?') {
-                value = value.substr(0, value.length - 1);
-            }
-            values.push(value);
+    trim(grade) {
+        if (grade.endsWith('?')) {
+            return grade.slice(0, -1);
         }
-        return this.consolidations[schema.type](values);
+        return grade;
     }
 
-    consolidateEvals(code, schema, report) {
-        let grades = [];
-        for (let title of Object.keys(schema[code].evals)) {
-            let grade = report[title][code];
-            if (grade.substr(-1) === '?') {
-                grade = grade.substr(0, grade.length - 1);
-            }
-            grades.push(grade);
-        }
-        return sheet.goalMedian(grades);
-    }
-
-    evaluateGoal(median, diff) {
-        if (diff.substr(-1) === '?') {
-            diff = diff.substr(0, diff.length - 1);
-        }
-        return median >= 4.5 || diff === 'S';
-    }
-
-    evaluateGoals(goalSits) {
-        return !Object.values(goalSits).includes(false);
-    }
-
-    calculateCmpMean(schema, diagCons) {
+    processEvals(report) {
         let weights = [];
         let grades = [];
-        for (let title of Object.keys(schema)) {
-            weights.push(schema[title].weight);
-            grades.push(diagCons[title]);
-        }
-        return sheet.weightedMean(weights, grades);
-    }
-
-    calculateEssMean(schema, report) {
-        let weights = [];
-        let grades = [];
-        for (let code of Object.keys(schema)) {
-            for (let title of Object.keys(schema[code].evals)) {
-                weights.push(schema[code].evals[title]);
-                let grade = report[title][code];
-                if (grade.substr(-1) === '?') {
-                    grade = grade.substr(0, grade.length - 1);
-                }
-                grades.push(grade);
+        let eGrades = report['Avaliações'];
+        for (let g of this.schema.goals) {
+            for (let e of g.evals) {
+                let eName = this.schema.evals[e.index];
+                weights.push(e.weight);
+                grades.push(this.trim(eGrades[eName][g.code]));
             }
         }
         return sheet.weightedMean(weights, grades);
     }
 
-    calculateFinMean(goalAll, cmpMean, essMean) {
-        if (goalAll) {
-            if (essMean >= 5) {
-                return Math.min(10, sheet.round(essMean + 0.1 * cmpMean));
-            }
-            return essMean;
+    processGoalEvals(report, g) {
+        let args = [];
+        let eGrades = report['Avaliações'];
+        for (let e of g.evals) {
+            let eName = this.schema.evals[e.index];
+            args.push(this.trim(eGrades[eName][g.code]));
         }
-        return Math.min(4, essMean);
+        return sheet.goalMedian(args);
+    }
+
+    processGoalDiffs(report, gMedians, gCode) {
+        let gDeltas = report['Deltas'];
+        return sheet.goalResult(gMedians[gCode], this.trim(gDeltas[gCode]));
+    }
+
+    processDiags(report) {
+        let weights = [];
+        let grades = [];
+        let dGrades = report['Diagnósticos'];
+        for (let d of this.schema.diags) {
+            weights.push(d.weight);
+            grades.push(this.trim(dGrades[d.name]));
+        }
+        return sheet.weightedMean(weights, grades);
     }
 
     handleFileReaderLoad(event) {
@@ -150,48 +132,51 @@ class App extends Component {
             report = null;
         }
         if (!this.isValid(report)) {
-            this.handleFileReaderError(event);
+            this.handleFileReaderError();
             return;
         }
         this.stateMissing = false;
 
-        let diags = report['Diagnósticos'];
+        let eMean = this.processEvals(report);
 
-        let diagCons = {};
-        for (let title of Object.keys(diags)) {
-            diagCons[title] = this.consolidateDiags(this.schema.diags[title], diags[title]);
+        let gMedians = {};
+        let gResults = {};
+        for (let g of this.schema.goals) {
+            gMedians[g.code] = this.processGoalEvals(report, g);
+            gResults[g.code] = this.processGoalDiffs(report, gMedians, g.code);
         }
 
-        let evals = report['Avaliações'];
-        let diffs = report['Deltas'];
+        let failed = sheet.processGoals(gResults);
 
-        let goalMeds = {};
-        let goalSits = {};
-        for (let code of Object.keys(this.schema.goals)) {
-            goalMeds[code] = this.consolidateEvals(code, this.schema.goals, evals);
-            goalSits[code] = this.evaluateGoal(goalMeds[code], diffs[code]);
-        }
+        let cMean = this.processDiags(report);
 
-        let goalAll = this.evaluateGoals(goalSits);
-        let cmpMean = this.calculateCmpMean(this.schema.diags, diagCons);
-        let essMean = this.calculateEssMean(this.schema.goals, evals);
-        let finMean = this.calculateFinMean(goalAll, cmpMean, essMean);
+        let fGrade = sheet.finalGrade(eMean, failed, cMean);
 
         this.setState({
-            diags: diags,
-            evals: evals,
-            diffs: diffs,
-            diagCons: diagCons,
-            goalMeds: goalMeds,
-            goalSits: goalSits,
-            goalAll: goalAll,
-            cmpMean: cmpMean,
-            essMean: essMean,
-            finMean: finMean,
+            report: report,
+            eMean: eMean,
+            gMedians: gMedians,
+            gResults: gResults,
+            failed: failed,
+            cMean: cMean,
+            fGrade: fGrade,
         });
+
+        for (let eName of this.schema.evals) {
+            this.reverse[eName] = [];
+        }
+        for (let g of this.schema.goals) {
+            for (let e of g.evals) {
+                let eName = this.schema.evals[e.index];
+                this.reverse[eName].push({
+                    'g': g,
+                    'eWeight': e.weight,
+                });
+            }
+        }
     }
 
-    handleFileReaderError(event) {
+    handleFileReaderError() {
         this.setState({
             error: true,
         });
@@ -207,66 +192,66 @@ class App extends Component {
         }
     }
 
-    handleDiagPageChange(title, code, value) {
-        let diags = this.state.diags;
-        diags[title][code] = value;
+    handleDiagPageChange(dName, grade) {
+        let report = this.state.report;
+        report['Diagnósticos'][dName] = grade;
 
-        let diagCons = this.state.diagCons;
-        diagCons[title] = this.consolidateDiags(this.schema.diags[title], diags[title]);
+        let cMean = this.processDiags(report);
 
-        let cmpMean = this.calculateCmpMean(this.schema.diags, diagCons);
-        let finMean = this.calculateFinMean(this.state.goalAll, cmpMean, this.state.essMean);
+        let fGrade = sheet.finalGrade(this.state.eMean, this.state.failed, cMean);
 
         this.setState({
-            diags: diags,
-            diagCons: diagCons,
-            cmpMean: cmpMean,
-            finMean: finMean,
+            report: report,
+            cMean: cMean,
+            fGrade: fGrade,
         });
     }
 
-    handleEvalPageChange(title, code, value) {
-        let evals = this.state.evals;
-        evals[title][code] = value;
+    handleEvalPageChange(eName, g, grade) {
+        let report = this.state.report;
+        report['Avaliações'][eName][g.code] = grade;
 
-        let goalMeds = this.state.goalMeds;
-        let goalSits = this.state.goalSits;
-        goalMeds[code] = this.consolidateEvals(code, this.schema.goals, evals);
-        goalSits[code] = this.evaluateGoal(goalMeds[code], this.state.diffs[code]);
+        let eMean = this.processEvals(report);
 
-        let goalAll = this.evaluateGoals(goalSits);
-        let essMean = this.calculateEssMean(this.schema.goals, evals);
-        let finMean = this.calculateFinMean(goalAll, this.state.cmpMean, essMean);
+        let gMedians = this.state.gMedians;
+        let gResults = this.state.gResults;
+        gMedians[g.code] = this.processGoalEvals(report, g);
+        gResults[g.code] = this.processGoalDiffs(report, gMedians, g.code);
+
+        let failed = sheet.processGoals(gResults);
+
+        let fGrade = sheet.finalGrade(eMean, failed, this.state.cMean);
 
         this.setState({
-            evals: evals,
-            goalMeds: goalMeds,
-            goalSits: goalSits,
-            goalAll: goalAll,
-            essMean: essMean,
-            finMean: finMean,
+            report: report,
+            eMean: eMean,
+            gMedians: gMedians,
+            gResults: gResults,
+            failed: failed,
+            fGrade: fGrade,
         });
     }
 
-    handleGoalPageChange(code, diff) {
-        let diffs = this.state.diffs;
-        diffs[code] = diff;
+    handleGoalPageChange(gCode, delta) {
+        let report = this.state.report;
+        report['Deltas'][gCode] = delta;
 
-        let goalSits = this.state.goalSits;
-        goalSits[code] = this.evaluateGoal(this.state.goalMeds[code], diffs[code]);
+        let gResults = this.state.gResults;
+        gResults[gCode] = this.processGoalDiffs(report, this.state.gMedians, gCode);
 
-        let goalAll = this.evaluateGoals(goalSits);
-        let finMean = this.calculateFinMean(goalAll, this.state.cmpMean, this.state.essMean);
+        let failed = sheet.processGoals(gResults);
+
+        let fGrade = sheet.finalGrade(this.state.eMean, failed, this.state.cMean);
 
         this.setState({
-            diffs: diffs,
-            goalSits: goalSits,
-            goalAll: goalAll,
-            finMean: finMean,
+            report: report,
+            gResults: gResults,
+            failed: failed,
+            fGrade: fGrade,
         });
     }
 
-    handleHeaderNavLiClick(event) {
+    handlePageNameClick(event) {
         let index = parseInt(event.target.getAttribute('data-index'));
         this.setState({
             index: index,
@@ -275,12 +260,11 @@ class App extends Component {
 
     render() {
         if (this.schemaMissing) {
-            let url = new URL(window.location.href);
-            let key = url.searchParams.get('schema');
+            let key = (new URLSearchParams(window.location.search)).get('schema');
             if (!(key in this.schema)) {
                 return (
                     <form>
-                        <p>pare de brincar com o endereço da página</p>
+                        <p>não modifique o endereço da página</p>
                     </form>
                 );
             }
@@ -291,14 +275,14 @@ class App extends Component {
         if (this.stateMissing) {
             return (
                 <form>
-                    <p>carregue abaixo o relatório recebido por email</p>
+                    <p>carregue o relatório recebido por email</p>
                     <input type="file" onChange={this.handleFileInputChange} />
-                    <p className={this.state.error ? 'error' : 'hidden'}>não foi possível ler o arquivo</p>
+                    <p className={this.state.error ? 'alert' : 'hidden'}>não foi possível ler o arquivo</p>
                 </form>
             );
         }
 
-        let meanLow = this.state.essMean < 5;
+        let low = this.state.eMean < 5;
 
         let names = [
             'Diagnósticos',
@@ -308,24 +292,33 @@ class App extends Component {
         ];
 
         let pages = [
-            <DiagPage schema={this.schema}
-                report={this.state.diags}
-                result={this.state.diagCons}
-                onChange={this.handleDiagPageChange} />,
-            <EvalPage schema={this.schema}
-                report={this.state.evals}
-                onChange={this.handleEvalPageChange} />,
-            <GoalPage schema={this.schema}
-                report={this.state}
-                onDiffChange={this.handleGoalPageChange}
-                onEvalChange={this.handleEvalPageChange} />,
-            <MeanPage diagCons={this.state.diagCons}
-                goalSits={this.state.goalSits}
-                cmpMean={this.state.cmpMean}
-                essMean={this.state.essMean}
-                finMean={this.state.finMean}
-                goalAll={this.state.goalAll}
-                meanLow={meanLow} />,
+            <DiagPage
+                schema={this.schema}
+                report={this.state.report}
+                onChange={this.handleDiagPageChange}
+            />,
+            <EvalPage
+                schema={this.schema}
+                report={this.state.report}
+                reverse={this.reverse}
+                onChange={this.handleEvalPageChange}
+            />,
+            <GoalPage
+                schema={this.schema}
+                report={this.state.report}
+                gMedians={this.state.gMedians}
+                gResults={this.state.gResults}
+                onEvalChange={this.handleEvalPageChange}
+                onGoalChange={this.handleGoalPageChange}
+            />,
+            <MeanPage
+                eMean={this.state.eMean}
+                gResults={this.state.gResults}
+                failed={this.state.failed}
+                cMean={this.state.cMean}
+                fGrade={this.state.fGrade}
+                low={low}
+            />,
         ];
 
         return [
@@ -333,21 +326,22 @@ class App extends Component {
                 <nav>
                     <ul>
                         {names.map((name, index) => {
-                            let classNames = [];
+                            let classList = [];
                             if (index === this.state.index) {
-                                classNames.push('current');
+                                classList.push('current');
                             }
-                            if (name === 'Objetivos' && !this.state.goalAll) {
-                                classNames.push('alert');
-                            }
-                            if (name === 'Médias' && (!this.state.goalAll || meanLow)) {
-                                classNames.push('alert');
+                            if (name === 'Médias' && (low || this.state.failed)) {
+                                classList.push('alert');
+                            } else if (name === 'Objetivos' && this.state.failed) {
+                                classList.push('alert');
                             }
                             return (
-                                <li key={index}
-                                    className={classNames ? classNames.join('-') : null}
+                                <li
+                                    key={index}
+                                    className={classList.length ? classList.join(' ') : null}
                                     data-index={index}
-                                    onClick={this.handleHeaderNavLiClick}>
+                                    onClick={this.handlePageNameClick}
+                                >
                                     {name}
                                 </li>
                             );
