@@ -25,14 +25,12 @@ div.container {
     width: 48rem;
     max-width: 100%;
     padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
     padding-top: 3rem;
     padding-bottom: 2rem;
     background-color: #ffffff;
@@ -149,6 +147,10 @@ header li.current {
 }
 header li.alert {
     border-color: #ff0000;
+}
+
+footer {
+    min-height: 1rem;
 }
 
 .alert {
