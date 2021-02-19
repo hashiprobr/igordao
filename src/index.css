@@ -5,9 +5,6 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
     height: 100%;
     line-height: 1.35;
     text-align: justify;
@@ -24,13 +21,17 @@ div.container {
     flex-direction: column;
     width: 48rem;
     max-width: 100%;
-    padding-top: 1rem;
+    min-height: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding-top: 3rem;
     padding-bottom: 2rem;
     background-color: #ffffff;
@@ -43,6 +44,8 @@ form > * {
 
 main {
     flex-grow: 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding-top: 3rem;
     padding-bottom: 2rem;
     background-color: #ffffff;
@@ -58,11 +61,16 @@ h2 {
     margin-bottom: 1rem;
     border-top: .05rem solid #000000;
     padding-top: 2rem;
-    font-size: 1rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
-    font-weight: bold;
     text-align: left;
+}
+
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-width: 0;
+    border-bottom: .05rem solid #000000;
 }
 
 p {
@@ -124,10 +132,11 @@ p.grade {
     padding-left: 1rem;
     font-size: 3.5rem;
     font-family: "Oxygen Mono", monospace;
+    font-weight: bold;
 }
 
 header {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 header ul {
     display: flex;
@@ -149,10 +158,6 @@ header li.alert {
     border-color: #ff0000;
 }
 
-footer {
-    min-height: 1rem;
-}
-
 .alert {
     color: #ff0000;
 }
@@ -163,8 +168,9 @@ footer {
 
 
 @media screen and (max-width: 49rem) {
-    .container {
-        flex-grow: 1;
+    div.container {
+        margin-right: 0;
+        margin-left: 0;
     }
 
     form {
@@ -204,8 +210,14 @@ footer {
         margin-left: 1rem;
     }
 
-    h2 {
+    h2,
+    hr {
         margin-top: 1.5rem;
+    }
+    h2 {
+        padding-top: 1.5rem;
+    }
+    hr {
         margin-bottom: 1.5rem;
     }
 

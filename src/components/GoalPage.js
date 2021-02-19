@@ -12,7 +12,7 @@ class GoalPage extends Component {
                 você ainda não atingiu o objetivo.
             </p>,
             <p key="p1">
-                Os conceitos em branco são aqueles que ainda não estão
+                Os conceitos em cor branca são aqueles que ainda não estão
                 disponíveis, ou seja, a avaliação ainda não foi passada ou
                 ainda não foi corrigida. Nesse caso, você pode inserir o
                 conceito que quiser para simular possíveis situações.

@@ -277,15 +277,13 @@ class App extends Component {
         }
 
         if (this.stateMissing) {
-            return [
+            return (
                 <form key="form">
                     <p>carregue o relatório recebido por email</p>
                     <input type="file" onChange={this.handleFileInputChange} />
                     <p className={this.state.error ? 'alert' : 'hidden'}>não foi possível ler o arquivo</p>
-                </form>,
-                <footer key="footer">
-                </footer>,
-            ];
+                </form>
+            );
         }
 
         let low = this.state.eMean < 5;
@@ -358,8 +356,6 @@ class App extends Component {
             <main key="main">
                 {pages[this.state.index]}
             </main>,
-            <footer key="footer">
-            </footer>,
         ];
     }
 }
