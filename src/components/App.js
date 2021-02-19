@@ -274,12 +274,12 @@ class App extends Component {
 
         if (this.stateMissing) {
             return [
-                <form>
+                <form key="form">
                     <p>carregue o relatório recebido por email</p>
                     <input type="file" onChange={this.handleFileInputChange} />
                     <p className={this.state.error ? 'alert' : 'hidden'}>não foi possível ler o arquivo</p>
                 </form>,
-                <footer>
+                <footer key="footer">
                 </footer>,
             ];
         }
@@ -354,7 +354,7 @@ class App extends Component {
             <main key="main">
                 {pages[this.state.index]}
             </main>,
-            <footer>
+            <footer key="footer">
             </footer>,
         ];
     }
