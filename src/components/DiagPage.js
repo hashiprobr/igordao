@@ -11,7 +11,7 @@ class DiagPage extends Component {
                 altos.
             </p>,
             <p key="p1">
-                Os conceitos em cor branca são aqueles que ainda não estão
+                Os conceitos com setas são aqueles que ainda não estão
                 disponíveis, ou seja, o diagnóstico ainda não foi passado ou
                 ainda não foi corrigido. Nesse caso, você pode inserir o
                 conceito que quiser para simular possíveis situações.
