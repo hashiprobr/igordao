@@ -30,9 +30,15 @@ class Item extends Component {
 
     render() {
         if (this.grades.includes(this.props.grade)) {
+            let space;
+            if (this.props.grade.endsWith('+')) {
+                space = '';
+            } else {
+                space = <>&nbsp;</>;
+            }
             return (
                 <span className={'item ' + this.getClassName(this.props.grade)}>
-                    {this.props.grade}
+                    {this.props.grade}{space}
                 </span>
             );
         }
