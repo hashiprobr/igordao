@@ -67,13 +67,13 @@ export default {
     },
 
 
-    finalGrade: function (eMean, failed, cMean) {
+    finalGrade: function (eMean, failed, dMean) {
         if (failed || eMean < 5) {
             return Math.min(eMean, 4);
         }
 
-        let aMean = this.round(eMean + 0.1 * cMean);
+        let cMean = Math.round(0.9 * eMean + 0.1 * dMean);
 
-        return Math.min(aMean, 10);
+        return Math.max(cMean, 5);
     }
 };

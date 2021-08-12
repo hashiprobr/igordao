@@ -42,7 +42,7 @@ class MeanPage extends Component {
                 failed={false}
                 name="Nota Final"
                 content={this.props.fGrade}
-                description="Se nenhum título estiver vermelho, 100% da essencial mais 10% da complementar."
+                description="Se nenhum título estiver vermelho, 90% da essencial mais 10% da complementar."
             />,
         ];
     }
