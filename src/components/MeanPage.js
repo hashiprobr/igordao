@@ -21,7 +21,7 @@ class MeanPage extends Component {
                 failed={this.props.low}
                 name="Média dos Conceitos Essenciais"
                 content={this.props.eMean}
-                description="Uma média essencial abaixo de 5 limita a média final a 4."
+                description="Essa média essencial deve ser maior ou igual a 5."
             />,
             <MeanItemSet
                 key="goal"

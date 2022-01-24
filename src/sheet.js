@@ -68,11 +68,14 @@ export default {
 
 
     finalGrade: function (eMean, failed, dMean) {
-        if (failed || eMean < 5) {
+        if (failed) {
             return Math.min(eMean, 4);
         }
+        if (eMean < 5) {
+            return eMean;
+        }
 
-        let cMean = Math.round(0.9 * eMean + 0.1 * dMean);
+        let cMean = this.round(0.9 * eMean + 0.1 * dMean);
 
         return Math.max(cMean, 5);
     }
