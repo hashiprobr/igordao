@@ -109,7 +109,11 @@ class App extends Component {
             let eName = this.schema.evals[e.index];
             args.push(this.trim(eGrades[eName][g.code]));
         }
-        return sheet.goalMedian(args);
+        if (g.maximum) {
+            return sheet.goalMaximum(args);
+        } else {
+            return sheet.goalMedian(args);
+        }
     }
 
     processGoalDiffs(report, gMedians, gCode) {

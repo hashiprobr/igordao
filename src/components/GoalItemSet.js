@@ -69,7 +69,7 @@ class GoalItemSet extends Component {
                     ];
                 })}
                 <span className="highlight">
-                    Mediana
+                    {this.props.g.maximum ? 'Máximo' : 'Mediana'}
                 </span>
                 <span className="item">
                     {this.props.gMedian}

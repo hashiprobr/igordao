@@ -57,6 +57,17 @@ export default {
     },
 
 
+    goalMaximum: function (args) {
+        let grades = [];
+
+        for (let i = 0; i < args.length; i++) {
+            grades.push(this.convert(args[i]));
+        }
+
+        return Math.max(...grades);
+    },
+
+
     goalResult: function (median, delta) {
         return median >= 4.5 || delta === 'S';
     },
